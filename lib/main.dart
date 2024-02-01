@@ -5,7 +5,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  bool get isAccepted => false;
+  bool isAccepted = false;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
                     children: <Widget>[
                       IconButton(
                         onPressed: () {},
-                        icon: Icon(Icons.arrow_back, color: Colors.black,),
+                        icon: Icon(Icons.arrow_back, color: Colors.black),
                       ),
                     ],
                   ),
@@ -36,16 +36,25 @@ class MyApp extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.vertical(top: Radius.circular(50)),
+                    boxShadow: [ // Add box shadow here
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3),
+                      ),
+                    ],
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Image.asset(
                         'assets/openboximg.png',
                         width: 300,
                         height: 200,
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 15),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -83,6 +92,8 @@ class MyApp extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(height: 20),
+                // Removed navigation button
               ],
             ),
           ),
